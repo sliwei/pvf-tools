@@ -17,8 +17,7 @@ export default () => {
             <ImgPlaceholder className=" h-full w-auto" src={LogoImg} alt="logo" />
           </a>
         </div>
-        <div className=" flex-1">
-        </div>
+        <div className=" flex-1">pvf.bstu.cn</div>
       </div>
     </Container>
   )
