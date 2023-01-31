@@ -36,7 +36,7 @@ local RUN="/data/wwwroot/" + NAME;
           "yarn",
           "yarn build:live",
           "mkdir -p "+RUN,
-          "cp -rf dist/prod/index.html "+RUN+"/index.html"
+          "cp -rf dist/* "+RUN
         ]
       },
       {
