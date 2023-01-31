@@ -12,7 +12,7 @@ export default async ({ mode }) => {
   const isProd = process.env.VITE_APP_ENV && process.env.VITE_APP_ENV !== 'dev'
   const plugins = [reactRefresh()]
   let sourcemap = true
-  let base = '/'
+  let base = './'
   
   return defineConfig({
     sourcemap: true,
