@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>pvf-tools</title>
+    <meta name="Keywords" content="网页版的便捷工具" />
+    <meta name="description" content="" />
+    <link rel="icon" href="/src/assets/images/favicon.ico" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <style>
+      #loading {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('./src/assets/images/cubes.png');
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.35s;
+      }
+      /* loading start */
+      .custom-loader {
+        width: 48px;
+        height: 48px;
+        background: #766df4;
+        border-radius: 9px;
+        --c: radial-gradient(farthest-side, #000 92%, #0000);
+        --s: 18px 18px;
+        -webkit-mask: var(--c) left 4px top 4px, var(--c) right 4px top 4px,
+          var(--c) right 4px bottom 4px, var(--c) left 4px bottom 4px, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        -webkit-mask-repeat: no-repeat;
+        animation: cu4 1.5s infinite;
+      }
+
+      @keyframes cu4 {
+        0% {
+          -webkit-mask-size: 0 0, 0 0, 0 0, 0 0, auto;
+        }
+        12.5% {
+          -webkit-mask-size: var(--s), 0 0, 0 0, 0 0, auto;
+        }
+        25% {
+          -webkit-mask-size: var(--s), var(--s), 0 0, 0 0, auto;
+        }
+        37.5% {
+          -webkit-mask-size: var(--s), var(--s), var(--s), 0 0, auto;
+        }
+        50% {
+          -webkit-mask-size: var(--s), var(--s), var(--s), var(--s), auto;
+        }
+        62.5% {
+          -webkit-mask-size: 0 0, var(--s), var(--s), var(--s), auto;
+        }
+        75% {
+          -webkit-mask-size: 0 0, 0 0, var(--s), var(--s), auto;
+        }
+        87.5% {
+          -webkit-mask-size: 0 0, 0 0, 0 0, var(--s), auto;
+        }
+        100% {
+          -webkit-mask-size: 0 0, 0 0, 0 0, 0 0, auto;
+        }
+      }
+      /* loading end */
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div id="loading">
+        <!-- loading start -->
+        <div class="custom-loader"></div>
+        <!-- loading end -->
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
