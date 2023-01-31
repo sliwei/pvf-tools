@@ -186,8 +186,8 @@ export default () => {
       code: 'action',
       render: (text: number, record: any, index: number) => {
         return (
-          <button className="text-red-500" onClick={() => del(index)}>
-            删
+          <button className="rounded text-white bg-red-600 py-1 px-2 mr-[4px] mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition" onClick={() => del(index)}>
+            删除
           </button>
         )
       }
