@@ -17,12 +17,12 @@ const menu = [
     title: 'Tools',
     subitem: [
       {
-        title: 'Magic_hell',
+        title: '魔盒编辑器',
         link: '/',
         type: 0
       },
       {
-        title: 'test',
+        title: '爆率计算器',
         link: '/test',
         type: 0
       },

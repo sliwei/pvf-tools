@@ -17,6 +17,7 @@ export default () => {
   const [code, setCode] = useState<string>('')
   const [addState, setAddState] = useState<boolean>(false)
   const [impStackableState, setImpStackableState] = useState<boolean>(false)
+  const [descriptionState, setDescriptionState] = useState<boolean>(false)
   const [refresh, setRefresh] = useState<number>(0)
   const [dataSource, setDataSource] = useState<dataSourceType[]>([])
   const [addId, setAddId] = useState<string>('')
@@ -199,23 +200,25 @@ export default () => {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.98 }}
     >
-      <span>stackable/twdf/cash/randomcerabox/randomcerabox_tw.stk</span>
+      <button className="rounded text-white bg-blue-600 py-1 px-2 mr-[4px] mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition" onClick={() => setDescriptionState(true)}>使用说明</button>
+      {/* &emsp;<span>stackable/twdf/cash/randomcerabox/randomcerabox_tw.stk</span> */}
       <textarea
         className="w-full text-xs"
         rows={4}
         onChange={(e) => setCode(e.target.value)}
         value={code}
+        placeholder="random list"
       ></textarea>
-      <button onClick={() => setImpStackableState(true)}>导入stackable</button>&emsp;
-      <button onClick={() => setAddState(true)}>添加一列</button>&emsp;
-      <button onClick={ex}>解析</button>&emsp;
-      <button onClick={out}>生成</button>&emsp; 百分比：<span>{max}</span>
+      <button className="rounded text-white bg-blue-600 py-1 px-2 mr-[4px] mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition" onClick={() => setImpStackableState(true)}>导入stackable</button>&emsp;
+      <button className="rounded text-white bg-blue-600 py-1 px-2 mr-[4px] mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition" onClick={() => setAddState(true)}>添加一列</button>&emsp;
+      <button className="rounded text-white bg-blue-600 py-1 px-2 mr-[4px] mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition" onClick={ex}>解析</button>&emsp;
+      <button className="rounded text-white bg-blue-600 py-1 px-2 mr-[4px] mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition" onClick={out}>生成</button>&emsp; 百分比：<span>{max}</span>
       <BaseTable
         style={{ '--row-height': '16px', '--font-size': '12px', '--cell-padding': '2px 8px' }}
         dataSource={dataSource}
         columns={columns}
       />
-      <Modal show={addState} header={''} cancel={() => setAddState(false)} confirm={add}>
+      <Modal show={addState} header={'添加一列物品'} cancel={() => setAddState(false)} confirm={add}>
         <input
           className=" p-4 border w-full h-[26px] text-[12px]"
           value={addId}
@@ -225,7 +228,7 @@ export default () => {
       </Modal>
       <Modal
         show={impStackableState}
-        header={''}
+        header={'导入stackable'}
         cancel={() => setImpStackableState(false)}
         confirm={setStackableEx}
       >
@@ -236,6 +239,25 @@ export default () => {
           placeholder="stackable"
           onChange={(e) => setStackableTxt(e.target.value)}
         ></textarea>
+      </Modal>
+      <Modal
+        show={descriptionState}
+        header={'版本说明'}
+        cancelText='知道了'
+        cancel={() => setDescriptionState(false)}
+      >
+        <pre className='whitespace-pre-wrap text-xs'>
+          v1.0.0：<br/>
+            1.支持解析、生成、本地存stackable<br/>
+            2.修改概率、个数、公告<br/>
+            <br/>
+          说明：<br/>
+            本魔盒编辑器是手动的，只能可视化编辑random list，random list的取和存，回显名称都需要手动操作<br/>
+            1.使用lst管理器将stackable文件导出为代码---名称结构的字符串，使用「导入stackable」存在本地<br/>
+            2.将randomcerabox_tw.stk文件的[random list]提取出来，放在random list编辑框，点击「解析」即可生成表格，如果你提前将stackable导入，那么名称列会自动匹配名称<br/>
+            3.使用「添加一列」或删除、修改表格进行自定义修改，点击「生成」生成出修改后的结果，生成后的字符串会覆盖编辑框，自行复制覆盖randomcerabox_tw.stk文件中的random list即可<br/>
+            注意百分比不要超过100
+        </pre>
       </Modal>
     </Container>
   )
