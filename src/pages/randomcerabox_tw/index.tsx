@@ -54,7 +54,7 @@ export default () => {
 
   const ex = () => {
     let list: dataSourceType[] = []
-    let arr = code.split('	')
+    let arr = code.trim().split('	')
     for (let i = 0; i < Math.ceil(arr.length / 4); i++) {
       list.push({
         id: arr[i * 4 + 0],
@@ -115,23 +115,23 @@ export default () => {
 
   const columns = [
     {
-      name: 'index',
+      name: '序号',
       code: 'index',
       render: (text: number, record: any, index: number) => {
         return index + 1
       }
     },
     {
-      name: 'id',
+      name: '物品id',
       code: 'id'
     },
     {
-      name: 'name',
+      name: '名称',
       code: 'name',
       width: 300
     },
     {
-      name: 'probability',
+      name: '几率',
       code: 'probability',
       width: 120,
       render: (text: number, record: any, index: number) => {
@@ -150,7 +150,7 @@ export default () => {
       }
     },
     {
-      name: 'num',
+      name: '获得数量',
       code: 'num',
       width: 120,
       render: (text: number, record: any, index: number) => {
@@ -166,7 +166,7 @@ export default () => {
       }
     },
     {
-      name: 'message',
+      name: '是否公告',
       code: 'message',
       width: 120,
       render: (text: number, record: any, index: number) => {
@@ -246,10 +246,16 @@ export default () => {
         cancelText='知道了'
         cancel={() => setDescriptionState(false)}
       >
+        {/* 🔥新增 🆕新功能 🐞bug 💄优化修复 🗑废弃 🛠重构 */}
         <pre className='whitespace-pre-wrap text-xs'>
+          v1.0.1：<br/>
+            🐞去random list首尾空格<br/>
+            🔥添加源码地址（右上角Github）<br/>
+            <br/>
+
           v1.0.0：<br/>
-            1.支持解析、生成、本地存stackable<br/>
-            2.修改概率、个数、公告<br/>
+            🔥支持解析、生成、本地存stackable<br/>
+            🔥修改概率、个数、公告<br/>
             <br/>
           说明：<br/>
             本魔盒编辑器是手动的，只能可视化编辑random list，random list的取和存，回显名称都需要手动操作<br/>

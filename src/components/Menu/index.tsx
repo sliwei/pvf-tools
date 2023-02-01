@@ -2,6 +2,7 @@ import React, { useState, Fragment, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styled from 'styled-components'
 import { NavLink, useLocation } from 'react-router-dom'
+import { TbToolsOff } from 'react-icons/tb'
 import { AiOutlineBook, AiOutlineControl, AiOutlineDesktop, AiOutlineRight } from 'react-icons/ai'
 import {
   useRecoilValue,
@@ -13,8 +14,8 @@ import Modal from '../Modal'
 
 const menu = [
   {
-    icon: <AiOutlineBook />,
-    title: 'Tools',
+    icon: <TbToolsOff />,
+    title: 'Pvf Tools',
     subitem: [
       {
         title: '魔盒编辑器',
@@ -23,7 +24,32 @@ const menu = [
       },
       {
         title: '爆率计算器',
-        link: '/test',
+        link: '/itemdropinfo_monster_hell',
+        type: 0
+      },
+      {
+        title: '独立掉落',
+        link: '/independent_drop',
+        type: 0
+      },
+      {
+        title: 'NPC商店',
+        link: '/itemshop',
+        type: 0
+      },
+      {
+        title: '翻牌',
+        link: '/itemdropinfo_clearreward',
+        type: 0
+      },
+      {
+        title: '小怪',
+        link: '/itemdropinfo_monseter',
+        type: 0
+      },
+      {
+        title: '绿名怪',
+        link: '/itemdropinfo_monseter_extra',
         type: 0
       },
     ]

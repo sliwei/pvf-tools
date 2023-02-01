@@ -1,6 +1,6 @@
 {
   "name": "pvf-tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "网页版的便捷工具",
   "license": "MIT",
   "main": "index.js",

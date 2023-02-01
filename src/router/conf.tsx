@@ -1,13 +1,17 @@
 import React, { ReactNode } from 'react'
-
+import { Navigate } from 'react-router-dom'
 // Layout import
 import Layout from '@/layout/Layout'
 
 // Components import
 import Login from '@/pages/login'
-import Home from '@/pages/home'
-import Test from '@/pages/test'
-import { Navigate } from 'react-router-dom'
+import RandomceraboxTw from '@/pages/randomcerabox_tw'
+import ItemdropinfoMonsterHell from '@/pages/itemdropinfo_monster_hell'
+import IndependentDrop from '@/pages/independent_drop'
+import Itemshop from '@/pages/itemshop'
+import ItemdropinfoClearreward from '@/pages/itemdropinfo_clearreward'
+import ItemdropinfoMonseter from '@/pages/itemdropinfo_monseter'
+import ItemdropinfoMonseterExtra from '@/pages/itemdropinfo_monseter_extra'
 
 export interface routerType {
   path: string
@@ -16,7 +20,16 @@ export interface routerType {
 }
 
 // 忽略鉴权的路由，鉴权逻辑在[/src/router/index.tsx]中的守卫处
-export const ignoreTokenPath = ['/login', '/', '/test']
+export const ignoreTokenPath = [
+  '/',
+  '/login',
+  '/itemdropinfo_monster_hell',
+  '/independent_drop',
+  '/itemshop',
+  '/itemdropinfo_clearreward',
+  '/itemdropinfo_monseter',
+  '/itemdropinfo_monseter_extra'
+]
 
 const router: routerType[] = [
   {
@@ -29,12 +42,32 @@ const router: routerType[] = [
     children: [
       {
         path: '/',
-        component: <Home />
+        component: <RandomceraboxTw />
       },
       {
-        path: '/test',
-        component: <Test />
+        path: '/itemdropinfo_monster_hell',
+        component: <ItemdropinfoMonsterHell />
       },
+      {
+        path: '/independent_drop',
+        component: <IndependentDrop />
+      },
+      {
+        path: '/itemshop',
+        component: <Itemshop />
+      },
+      {
+        path: '/itemdropinfo_clearreward',
+        component: <ItemdropinfoClearreward />
+      },
+      {
+        path: '/itemdropinfo_monseter',
+        component: <ItemdropinfoMonseter />
+      },
+      {
+        path: '/itemdropinfo_monseter_extra',
+        component: <ItemdropinfoMonseterExtra />
+      }
     ]
   },
   {
