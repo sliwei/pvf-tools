@@ -4,12 +4,7 @@ import styled from 'styled-components'
 import { NavLink, useLocation } from 'react-router-dom'
 import { TbToolsOff } from 'react-icons/tb'
 import { AiOutlineBook, AiOutlineControl, AiOutlineDesktop, AiOutlineRight } from 'react-icons/ai'
-import {
-  useRecoilValue,
-  themeStore,
-  useRecoilState,
-  useSetRecoilState
-} from '@/store'
+import { useRecoilValue, themeStore, useRecoilState, useSetRecoilState } from '@/store'
 import Modal from '../Modal'
 
 const menu = [
@@ -25,6 +20,11 @@ const menu = [
       {
         title: '爆率计算器',
         link: '/itemdropinfo_monster_hell',
+        type: 0
+      },
+      {
+        title: '金币掉落',
+        link: '/itemdropinfo_common',
         type: 0
       },
       {
@@ -51,9 +51,9 @@ const menu = [
         title: '绿名怪',
         link: '/itemdropinfo_monseter_extra',
         type: 0
-      },
+      }
     ]
-  },
+  }
 ]
 
 export default () => {

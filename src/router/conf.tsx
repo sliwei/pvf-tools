@@ -12,6 +12,7 @@ import Itemshop from '@/pages/itemshop'
 import ItemdropinfoClearreward from '@/pages/itemdropinfo_clearreward'
 import ItemdropinfoMonseter from '@/pages/itemdropinfo_monseter'
 import ItemdropinfoMonseterExtra from '@/pages/itemdropinfo_monseter_extra'
+import ItemdropinfoCommon from '@/pages/itemdropinfo_common'
 
 export interface routerType {
   path: string
@@ -28,7 +29,8 @@ export const ignoreTokenPath = [
   '/itemshop',
   '/itemdropinfo_clearreward',
   '/itemdropinfo_monseter',
-  '/itemdropinfo_monseter_extra'
+  '/itemdropinfo_monseter_extra',
+  '/itemdropinfo_common'
 ]
 
 const router: routerType[] = [
@@ -67,6 +69,10 @@ const router: routerType[] = [
       {
         path: '/itemdropinfo_monseter_extra',
         component: <ItemdropinfoMonseterExtra />
+      },
+      {
+        path: '/itemdropinfo_common',
+        component: <ItemdropinfoCommon />
       }
     ]
   },
