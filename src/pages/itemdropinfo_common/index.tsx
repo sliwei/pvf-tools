@@ -144,6 +144,7 @@ export default () => {
       })
       return [...v]
     })
+    change()
   }
 
   const changeVal = (type: string, val: string, index: number) => {
