@@ -54,7 +54,7 @@ export default () => {
 
   const ex = () => {
     let list: dataSourceType[] = []
-    let arr = code.trim().split('	')
+    let arr = code.trim().replaceAll(/		/g, '	').split('	').filter(v => v)
     for (let i = 0; i < Math.ceil(arr.length / 4); i++) {
       list.push({
         id: arr[i * 4 + 0],
@@ -248,6 +248,10 @@ export default () => {
       >
         {/* 🔥新增 🆕新功能 🐞bug 💄优化修复 🗑废弃 🛠重构 */}
         <pre className='whitespace-pre-wrap text-xs'>
+          v1.0.4：<br/>
+            🐞修复解析多个空格和为空的情况<br/>
+            <br/>
+
           v1.0.1：<br/>
             🐞去random list首尾空格<br/>
             🔥添加源码地址（右上角Github）<br/>
