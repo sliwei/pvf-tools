@@ -14,11 +14,13 @@
     "prettier": "npx prettier --write ."
   },
   "dependencies": {
+    "@handsontable/react": "^12.3.1",
     "ali-react-table": "^2.6.1",
     "axios": "^0.27.2",
     "dayjs": "^1.11.5",
     "events": "^3.3.0",
     "framer-motion": "^6.3.11",
+    "handsontable": "^12.3.1",
     "history": "^5.3.0",
     "md5": "^2.3.0",
     "qs": "^6.11.0",
@@ -28,6 +30,7 @@
     "react-icons": "^4.4.0",
     "react-query": "^3.39.1",
     "react-router-dom": "^6.3.0",
+    "react-tooltip": "^5.8.3",
     "recoil": "^0.7.3",
     "styled-components": "^5.3.5",
     "vanilla-back-to-top": "^7.2.1"
