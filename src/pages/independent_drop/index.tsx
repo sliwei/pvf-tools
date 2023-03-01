@@ -36,7 +36,7 @@ export default () => {
         `http://localhost:27000/Api/PvfUtiltiy/GetFileContent?filePath=stackable/twdf/cash/randomcerabox/randomcerabox_tw.stk&useCompatibleDecompiler=true&encodingType=CN`
       )
       .then((res: any) => {
-        const txt = res.Data
+        const txt = res.data.Data
         const random = txt.substring(txt.indexOf('[random]'), txt.indexOf('[/random]'))
         let randomArr: string[] = random.split('[random list]')
         const randomArrList = randomArr.map((v) => {
