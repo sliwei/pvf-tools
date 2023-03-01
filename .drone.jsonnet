@@ -8,22 +8,6 @@ local RUN="/data/wwwroot/" + NAME;
     "name": "deploy",
     "steps": [
       {
-        "name": "restore-cache",
-        "image": "drillster/drone-volume-cache",
-        "settings": {
-          "restore": true,
-          "mount": [
-            "./node_modules"
-          ]
-        },
-        "volumes": [
-          {
-            "name": "cache",
-            "path": "/cache"
-          }
-        ]
-      },
-      {
         "name": "build & copy",
         "image": "node:14",
         "volumes": [
@@ -33,26 +17,7 @@ local RUN="/data/wwwroot/" + NAME;
           }
         ],
         "commands": [
-          "yarn",
-          "yarn build:live",
-          "mkdir -p "+RUN,
           "cp -rf dist/* "+RUN
-        ]
-      },
-      {
-        "name": "rebuild-cache",
-        "image": "drillster/drone-volume-cache",
-        "settings": {
-          "rebuild": true,
-          "mount": [
-            "./node_modules"
-          ]
-        },
-        "volumes": [
-          {
-            "name": "cache",
-            "path": "/cache"
-          }
         ]
       },
       {
