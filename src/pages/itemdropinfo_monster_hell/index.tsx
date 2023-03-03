@@ -117,7 +117,7 @@ export default () => {
       width: 120
     },
     {
-      name: '困难',
+      name: '非常困难',
       code: 's',
       width: 120,
       render: (text: number, record: any, index: number) => {
@@ -141,7 +141,7 @@ export default () => {
       }
     },
     {
-      name: '非常困难',
+      name: '困难',
       code: 'ss',
       width: 120,
       render: (text: number, record: any, index: number) => {
