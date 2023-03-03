@@ -358,7 +358,7 @@ to {
       color: #ff3300;
     }
   }
-`;var xPe=()=>I.createElement(IPe,null,I.createElement("div",{className:"text-[12px] text-center text-[#ddd]"},"v.23.0303.1927"));const IPe=wr(kr.div)`
+`;var xPe=()=>I.createElement(IPe,null,I.createElement("div",{className:"text-[12px] text-center text-[#ddd]"},"v.23.0303.1938"));const IPe=wr(kr.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -958,23 +958,23 @@ Check your code at `+V.fileName.replace(/^.*[\\\/]/,"")+":"+V.lineNumber+".":""}
 	\`[free]\`
 
 [rarity]
-	2	
+	2
 
 [usable job]
 	\`[all]\`
 [/usable job]
 
 [minimum level]
-	1	
+	1
 
 [icon]
-	\`Item/stackable/consumption.img\`	442	
+	\`Item/stackable/consumption.img\`	442
 
 [field image]
-	\`Item/field_material.img\` 39	
+	\`Item/field_material.img\`	39
 
 [stackable type]
-	\`[multi upgradable legacy]\` 0
+	\`[multi upgradable legacy]\`	0
 
 [random]
 
@@ -995,14 +995,14 @@ Check your code at `+V.fileName.replace(/^.*[\\\/]/,"")+":"+V.lineNumber+".":""}
 	[/random list]
 
 	[sealing removal item]
-		900	1	
+		900	1
 	[/sealing removal item]
 
 [/random]
 
 [move wav]
-\`CLOTH_TOUCH\`
-      `;console.log(A)}},m=b=>{if(l.current){const S=l.current.hotInstance,_=b||S.getData();let A=0;_.forEach((P,D)=>{D!==0&&(A+=P[2])}),i(A)}},y=b=>{if(l.current&&r!==null){const S=l.current.hotInstance;t(_=>(_[r]=S.getData(),_))}n(b),setTimeout(()=>{m(e[b])},100)};return I.createElement(rIt,{initial:{opacity:0,scale:.98},animate:{opacity:1,scale:1},exit:{opacity:0,scale:.98}},I.createElement("div",{className:"my-[5px] flex items-center"},I.createElement("button",{"data-tooltip-id":"my-tooltip","data-tooltip-content":"\u9ED8\u8BA4\u81EA\u52A8\u8BFB\u53D6\u4E00\u6B21\uFF0C\u5982\u679CpvfUtility\u7F16\u8F91\u5668\u4E2D\u6587\u4EF6\u88AB\u6539\u52A8\uFF0C\u8BF7\u70B9\u51FB\u91CD\u65B0\u8BFB\u53D6",onClick:v,className:"rounded text-white bg-blue-600 py-1 px-2 mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition flex items-center"},I.createElement(PPe,null),"\u91CD\u65B0\u8BFB\u53D6"),"\u2002",I.createElement("button",{onClick:g,className:"rounded text-white bg-[#ff9800] py-1 px-2 mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition flex items-center"},I.createElement(TPe,null),"\u751F\u6210")),I.createElement("div",{className:"flex my-[5px]"},e.map((b,S)=>I.createElement("div",{key:S,onClick:()=>{S!==r&&y(S)},className:`flex text-[14px] cursor-pointer items-center p-1.5 hover:bg-[#6466f133] border-indigo-500 ${S===r?"border-l-2 border-t-2 border-r-2":"border-b-2"}`},S===0?"default list":`random list ${S}`))),r!==null?I.createElement("div",{className:"flex items-center my-[5px]"},I.createElement("button",{"data-tooltip-id":"my-tooltip","data-tooltip-content":"\u4FEE\u6539\u6570\u636E\u540E\uFF0C\u91CD\u65B0\u8BA1\u7B97\u6982\u7387",onClick:()=>m(),className:"rounded text-white bg-blue-600 py-1 px-2 mr-[4px] mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition"},"\u8BA1\u7B97\u6982\u7387"),"\u2002",I.createElement("span",{className:"text-[#f44336] text-[14px]"},"\u5F53\u524D: 1,000,000(100%\u603B\u6982\u7387) - ",o,"(",(o/1e4).toFixed(2),"%\u5176\u4ED6\u7269\u54C1) ="," ",(1e6-o).toFixed(0),"(",`${(100-o/1e4).toFixed(2)}`,"%\u7B2C\u4E00\u4E2A\u7269\u54C1)"),"\u2002",I.createElement(RPe,{"data-tooltip-id":"my-tooltip","data-tooltip-content":"\u7B2C\u4E00\u4E2A\u7269\u54C1\u7684\u6982\u7387\u7B49\u4E8E100\u4E07\u51CF\u53BB\u5176\u4ED6\u7269\u54C1\u6982\u7387\u4E4B\u548C",className:"text-[#ff9800] text-[18px]"})):null,I.createElement("div",{className:"flex-1"},I.createElement("div",{className:"flex"}),r!==null?I.createElement(qce,{ref:l,filters:!0,dropdownMenu:!0,data:e[r],colHeaders:b=>["\u7269\u54C1id","\u540D\u79F0","\u51E0\u7387","\u83B7\u5F97\u6570\u91CF","\u662F\u5426\u516C\u544A"][b],afterGetColHeader:(b,S)=>{var _;S.setAttribute("title",(_=S.querySelector("span"))==null?void 0:_.textContent)},contextMenu:["row_above","row_below","---------","undo","redo","---------","remove_row"],width:"100%",height:600,rowHeaders:!0,language:"zh-CN",columns:b=>({type:b>=2?"numeric":"text",readOnly:b<2}),cell:[{row:0,col:2,className:"htRight",readOnly:!0}],licenseKey:"non-commercial-and-evaluation"}):I.createElement("div",{className:"border-[#e5e7eb] w-full h-[240px] border-[1px] flex items-center justify-center flex-col"},I.createElement("img",{className:"h-[70%]",src:Qxt}),I.createElement("span",{className:"mt-[-20px] text-[#bbb] text-[14px]"},"\u6CA1\u6709\u6570\u636E"))),I.createElement(Xxt,{id:"my-tooltip"}))};const rIt=wr(kr.div)`
+	\`CLOTH_TOUCH\`
+`;console.log(A)}},m=b=>{if(l.current){const S=l.current.hotInstance,_=b||S.getData();let A=0;_.forEach((P,D)=>{D!==0&&(A+=P[2])}),i(A)}},y=b=>{if(l.current&&r!==null){const S=l.current.hotInstance;t(_=>(_[r]=S.getData(),_))}n(b),setTimeout(()=>{m(e[b])},100)};return I.createElement(rIt,{initial:{opacity:0,scale:.98},animate:{opacity:1,scale:1},exit:{opacity:0,scale:.98}},I.createElement("div",{className:"my-[5px] flex items-center"},I.createElement("button",{"data-tooltip-id":"my-tooltip","data-tooltip-content":"\u9ED8\u8BA4\u81EA\u52A8\u8BFB\u53D6\u4E00\u6B21\uFF0C\u5982\u679CpvfUtility\u7F16\u8F91\u5668\u4E2D\u6587\u4EF6\u88AB\u6539\u52A8\uFF0C\u8BF7\u70B9\u51FB\u91CD\u65B0\u8BFB\u53D6",onClick:v,className:"rounded text-white bg-blue-600 py-1 px-2 mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition flex items-center"},I.createElement(PPe,null),"\u91CD\u65B0\u8BFB\u53D6"),"\u2002",I.createElement("button",{onClick:g,className:"rounded text-white bg-[#ff9800] py-1 px-2 mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition flex items-center"},I.createElement(TPe,null),"\u751F\u6210")),I.createElement("div",{className:"flex my-[5px]"},e.map((b,S)=>I.createElement("div",{key:S,onClick:()=>{S!==r&&y(S)},className:`flex text-[14px] cursor-pointer items-center p-1.5 hover:bg-[#6466f133] border-indigo-500 ${S===r?"border-l-2 border-t-2 border-r-2":"border-b-2"}`},S===0?"default list":`random list ${S}`))),r!==null?I.createElement("div",{className:"flex items-center my-[5px]"},I.createElement("button",{"data-tooltip-id":"my-tooltip","data-tooltip-content":"\u4FEE\u6539\u6570\u636E\u540E\uFF0C\u91CD\u65B0\u8BA1\u7B97\u6982\u7387",onClick:()=>m(),className:"rounded text-white bg-blue-600 py-1 px-2 mr-[4px] mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition"},"\u8BA1\u7B97\u6982\u7387"),"\u2002",I.createElement("span",{className:"text-[#f44336] text-[14px]"},"\u5F53\u524D: 1,000,000(100%\u603B\u6982\u7387) - ",o,"(",(o/1e4).toFixed(2),"%\u5176\u4ED6\u7269\u54C1) ="," ",(1e6-o).toFixed(0),"(",`${(100-o/1e4).toFixed(2)}`,"%\u7B2C\u4E00\u4E2A\u7269\u54C1)"),"\u2002",I.createElement(RPe,{"data-tooltip-id":"my-tooltip","data-tooltip-content":"\u7B2C\u4E00\u4E2A\u7269\u54C1\u7684\u6982\u7387\u7B49\u4E8E100\u4E07\u51CF\u53BB\u5176\u4ED6\u7269\u54C1\u6982\u7387\u4E4B\u548C",className:"text-[#ff9800] text-[18px]"})):null,I.createElement("div",{className:"flex-1"},I.createElement("div",{className:"flex"}),r!==null?I.createElement(qce,{ref:l,filters:!0,dropdownMenu:!0,data:e[r],colHeaders:b=>["\u7269\u54C1id","\u540D\u79F0","\u51E0\u7387","\u83B7\u5F97\u6570\u91CF","\u662F\u5426\u516C\u544A"][b],afterGetColHeader:(b,S)=>{var _;S.setAttribute("title",(_=S.querySelector("span"))==null?void 0:_.textContent)},contextMenu:["row_above","row_below","---------","undo","redo","---------","remove_row"],width:"100%",height:600,rowHeaders:!0,language:"zh-CN",columns:b=>({type:b>=2?"numeric":"text",readOnly:b<2}),cell:[{row:0,col:2,className:"htRight",readOnly:!0}],licenseKey:"non-commercial-and-evaluation"}):I.createElement("div",{className:"border-[#e5e7eb] w-full h-[240px] border-[1px] flex items-center justify-center flex-col"},I.createElement("img",{className:"h-[70%]",src:Qxt}),I.createElement("span",{className:"mt-[-20px] text-[#bbb] text-[14px]"},"\u6CA1\u6709\u6570\u636E"))),I.createElement(Xxt,{id:"my-tooltip"}))};const rIt=wr(kr.div)`
   box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
   padding: 30px;
   background-color: rgb(255, 255, 255);

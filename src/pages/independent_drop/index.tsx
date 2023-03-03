@@ -181,23 +181,23 @@ export default () => {
 	\`[free]\`
 
 [rarity]
-	2	
+	2
 
 [usable job]
 	\`[all]\`
 [/usable job]
 
 [minimum level]
-	1	
+	1
 
 [icon]
-	\`Item/stackable/consumption.img\`	442	
+	\`Item/stackable/consumption.img\`	442
 
 [field image]
-	\`Item/field_material.img\` 39	
+	\`Item/field_material.img\`	39
 
 [stackable type]
-	\`[multi upgradable legacy]\` 0
+	\`[multi upgradable legacy]\`	0
 
 [random]
 
@@ -218,14 +218,14 @@ export default () => {
 	[/random list]
 
 	[sealing removal item]
-		900	1	
+		900	1
 	[/sealing removal item]
 
 [/random]
 
 [move wav]
-\`CLOTH_TOUCH\`
-      `
+	\`CLOTH_TOUCH\`
+`
       console.log(txt)
     }
   }
