@@ -7,6 +7,8 @@ import {
   selector
 } from 'recoil'
 import * as themeStore from './theme'
+import * as portStore from './port'
+import * as dataStore from './data'
 
 export {
   atom, // 创建数据源
@@ -16,4 +18,6 @@ export {
   useSetRecoilState, // 获取到atom数据源的set方法
   selectorFamily, // 与selector类似，但可以传参
   themeStore,
+  portStore,
+  dataStore
 }

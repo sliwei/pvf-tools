@@ -7,6 +7,7 @@ import UserAvatarImg from '@/assets/images/logo.png'
 import ImgPlaceholder from '../ImgPlaceholder'
 import { useRecoilValue, useSetRecoilState } from '@/store'
 import { BsGithub } from 'react-icons/bs'
+import Port from '../Port'
 
 export default () => {
   return (
@@ -17,7 +18,10 @@ export default () => {
             <ImgPlaceholder className=" h-full w-auto" src={LogoImg} alt="logo" />
           </a>
         </div>
-        <div className="ml-4 flex-1">pvf.bstu.cn</div>
+        <div className="ml-4">pvf.bstu.cn</div>
+        <div className="ml-4 flex-1">
+          <Port />
+        </div>
         <div>
           <a target="_blank" href="https://github.com/sliwei/pvf-tools">
             <BsGithub />
