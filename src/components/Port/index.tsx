@@ -58,21 +58,27 @@ export default () => {
   const loadLst = () => {
     setLoadLstWin(true)
     setIsLoadLst(true)
-    axios.get(`http://localhost:${port}/Api/PvfUtiltiy/GetAllLstFileList`).then((res: any) => {
-      const thatLstList = res.data.Data.map((v) => ({
-        isLoad: lstDisableLoad.includes(v),
-        path: v,
-        isLoading: false,
-        isFetching: false
-      }))
-      setLstList(thatLstList)
+    // axios.get(`http://localhost:${port}/Api/PvfUtiltiy/GetAllLstFileList`).then((res: any) => {
+    //   const thatLstList = res.data.Data.map((v) => ({
+    //     isLoad: lstDisableLoad.includes(v),
+    //     path: v,
+    //     isLoading: false,
+    //     isFetching: false
+    //   }))
+    const thatLstList = [
+      'equipment/equipment.lst', // 装备
+      'stackable/stackable.lst', // 物品
+      'aicharacter/aicharacter.lst', // 人偶
+      'creature/creature.lst' // 宠物
+    ]
+    setLstList(thatLstList)
 
-      setLst({})
-      localStorage.lst = ''
-      setTimeout(() => {
-        loopLoadLst(0, thatLstList)
-      }, 100)
-    })
+    setLst({})
+    localStorage.lst = ''
+    setTimeout(() => {
+      loopLoadLst(0, thatLstList)
+    }, 100)
+    // })
   }
 
   const loopLoadLst = (i: number, list: any) => {
@@ -163,7 +169,7 @@ export default () => {
         cancel={() => setLoadLstWin(false)}
         cancelText="后台加载"
       >
-        <div className="text-[12px]">
+        <div className="text-[14px] py-[20px]">
           {lstList.map((v: any, i: number) => (
             <div key={i}>
               {v.path} {v.isLoading ? '加载完成' : ''} {v.isFetching ? '加载中...' : ''}

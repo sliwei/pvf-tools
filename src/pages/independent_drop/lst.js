@@ -8,14 +8,14 @@ export default {
       'worldmap/worldmap.lst',
       'appendage/appendage.lst',
       'character/character.lst',
-      'equipment/equipment.lst',
+      'equipment/equipment.lst', // 装备
       'pet/pet.lst',
-      'stackable/stackable.lst',
-      'aicharacter/aicharacter.lst',
+      'stackable/stackable.lst', // 物品
+      'aicharacter/aicharacter.lst', // 人偶
       'dungeon/dungeon.lst',
       'chatemoticon/chatemoticon.lst',
       'monster/monster.lst',
-      'creature/creature.lst',
+      'creature/creature.lst', // 宠物
       'cashshop/cashshop.lst',
       'map/map.lst',
       'npc/npc.lst',

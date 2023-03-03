@@ -70,6 +70,8 @@ export default () => {
   // }
 
   const init = () => {
+    setData([])
+    setActive(null)
     axios
       .get(
         `http://localhost:${port}/Api/PvfUtiltiy/GetFileContent?filePath=stackable/twdf/cash/randomcerabox/randomcerabox_tw.stk&useCompatibleDecompiler=true&encodingType=CN`
@@ -83,7 +85,10 @@ export default () => {
 
   useEffect(() => {
     if (randomcerabox) {
-      const random = randomcerabox.substring(randomcerabox.indexOf('[random]'), randomcerabox.indexOf('[/random]'))
+      const random = randomcerabox.substring(
+        randomcerabox.indexOf('[random]'),
+        randomcerabox.indexOf('[/random]')
+      )
       let randomArr: string[] = random.split('[random list]')
       const randomArrList = randomArr.map((v) => {
         if (v.indexOf('[default list]') !== -1) {
