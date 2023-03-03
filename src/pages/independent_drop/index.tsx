@@ -13,7 +13,7 @@ import { HotTable } from '@handsontable/react'
 import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'
 // import lst from './data.js'
-// import hezi from './hezi.js'
+import hezi from './hezi.js'
 import noDataSvg from '@/assets/images/noData.svg'
 import axios from 'axios'
 import { dataStore, portStore, useRecoilState } from '@/store'
@@ -85,11 +85,14 @@ export default () => {
 
   useEffect(() => {
     if (randomcerabox) {
+      console.log(randomcerabox)
       const random = randomcerabox.substring(
         randomcerabox.indexOf('[random]'),
         randomcerabox.indexOf('[/random]')
       )
+      console.log(random)
       let randomArr: string[] = random.split('[random list]')
+      console.log(randomArr)
       const randomArrList = randomArr.map((v) => {
         if (v.indexOf('[default list]') !== -1) {
           return v
@@ -105,6 +108,7 @@ export default () => {
             .filter((v) => v)
         }
       })
+      console.log(randomArrList)
       const randomArrList2 = randomArrList.map((v) => {
         let arr: any[] = []
         for (let i = 0; i < Math.ceil(v.length / 4); i++) {
@@ -136,9 +140,93 @@ export default () => {
   }, [randomcerabox, re])
 
   const save = () => {
-    if (hotRef.current) {
+    if (hotRef.current && active !== null) {
       const hot = hotRef.current.hotInstance
-      console.log(hot.getData())
+      const out = data
+      out[active] = hot.getData()
+
+      let out1 = []
+      out.forEach((v, i) => {
+        let chr = []
+        v.forEach((vv, ii) => {
+          if (ii === 0) {
+            chr = [1, vv[0], vv[3], vv[4]]
+          } else {
+            chr = [...chr, vv[0], vv[2], vv[3], vv[4]]
+          }
+        })
+        out1.push(chr)
+      })
+
+      let txt = `
+#PVF_File
+
+[name]
+	\`赛丽亚的祝福\`
+
+[name2]
+	\`name2_690000280\`
+
+[explain]
+	\`    打开后可以获得装备、 宠物、 宝珠、 强化券、 各种消耗品等。
+    开启1个礼盒需要消耗1个幸运魔锤。\`
+
+[flavor text]
+	\`点击鼠标右键开启礼盒\`
+
+[grade]
+	1
+
+[attach type]
+	\`[free]\`
+
+[rarity]
+	2	
+
+[usable job]
+	\`[all]\`
+[/usable job]
+
+[minimum level]
+	1	
+
+[icon]
+	\`Item/stackable/consumption.img\`	442	
+
+[field image]
+	\`Item/field_material.img\` 39	
+
+[stackable type]
+	\`[multi upgradable legacy]\` 0
+
+[random]
+
+	[default list]
+		${out1[0].join('	')}
+	[/default list]
+
+	[random list]
+		${out1[1].join('	')}
+	[/random list]
+
+	[random list]
+		${out1[2].join('	')}
+	[/random list]
+
+	[random list]
+		${out1[3].join('	')}
+	[/random list]
+
+	[sealing removal item]
+		900	1	
+	[/sealing removal item]
+
+[/random]
+
+[move wav]
+\`CLOTH_TOUCH\`
+      `
+      console.log(txt)
     }
   }
 
@@ -190,7 +278,7 @@ export default () => {
           className="rounded text-white bg-[#ff9800] py-1 px-2 mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition flex items-center"
         >
           <AiOutlineSave />
-          保存
+          生成
         </button>
       </div>
       <div className="flex my-[5px]">
