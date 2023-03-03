@@ -59,18 +59,18 @@ export default () => {
     setLoadLstWin(true)
     setIsLoadLst(true)
     // axios.get(`http://localhost:${port}/Api/PvfUtiltiy/GetAllLstFileList`).then((res: any) => {
-    //   const thatLstList = res.data.Data.map((v) => ({
-    //     isLoad: lstDisableLoad.includes(v),
-    //     path: v,
-    //     isLoading: false,
-    //     isFetching: false
-    //   }))
+    // const thatLstList = res.data.Data.map((v) => ({
     const thatLstList = [
       'equipment/equipment.lst', // 装备
       'stackable/stackable.lst', // 物品
       'aicharacter/aicharacter.lst', // 人偶
       'creature/creature.lst' // 宠物
-    ]
+    ].map((v) => ({
+      isLoad: lstDisableLoad.includes(v),
+      path: v,
+      isLoading: false,
+      isFetching: false
+    }))
     setLstList(thatLstList)
 
     setLst({})
