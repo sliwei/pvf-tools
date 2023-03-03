@@ -18,12 +18,8 @@ import noDataSvg from '@/assets/images/noData.svg'
 import axios from 'axios'
 import { dataStore, portStore, useRecoilState } from '@/store'
 
-const { randomceraboxState } = dataStore
+const { randomceraboxState, lstState } = dataStore
 const { portState } = portStore
-
-const lst = {
-  Data: {}
-}
 
 registerAllModules()
 registerLanguageDictionary(zhCN)
@@ -32,9 +28,11 @@ export default () => {
   const [data, setData] = useState<any[]>([])
   const [active, setActive] = useState<null | number>(null)
   const [out, setOut] = useState<number>(0)
+  const [re, setRe] = useState<number>(0)
   const hotRef = useRef<any>(null)
   const [randomcerabox, setRandomcerabox] = useRecoilState(randomceraboxState)
   const [port, setPort] = useRecoilState(portState)
+  const [lst, setLst] = useRecoilState(lstState)
 
   useEffect(() => {
     if (!randomcerabox) {
@@ -79,6 +77,7 @@ export default () => {
       .then((res: any) => {
         // setRandomcerabox(hezi.Data)
         setRandomcerabox(res.data.Data)
+        setRe(new Date().getTime())
       })
   }
 
@@ -108,14 +107,14 @@ export default () => {
             i === 0
               ? [
                   parseInt(v[i * 4 + 1]),
-                  lst.Data[v[i * 4 + 1]]?.ItemName || '-',
+                  lst[v[i * 4 + 1]] || '-',
                   '\\',
                   parseInt(v[i * 4 + 2]) || 1,
                   parseInt(v[i * 4 + 3]) || 0
                 ]
               : [
                   parseInt(v[i * 4 + 0]),
-                  lst.Data[v[i * 4 + 0]]?.ItemName || '-',
+                  lst[v[i * 4 + 0]] || '-',
                   parseInt(v[i * 4 + 1]),
                   parseInt(v[i * 4 + 2]) || 1,
                   parseInt(v[i * 4 + 3]) || 0
@@ -129,7 +128,7 @@ export default () => {
     } else {
       setData([])
     }
-  }, [randomcerabox])
+  }, [randomcerabox, re])
 
   const save = () => {
     if (hotRef.current) {
