@@ -76,15 +76,18 @@ export default () => {
   const init = () => {
     setData([])
     setActive(null)
+
     axios
       .get(
         `http://localhost:${port}/Api/PvfUtiltiy/GetFileContent?filePath=stackable/twdf/cash/randomcerabox/randomcerabox_tw.stk&useCompatibleDecompiler=true&encodingType=CN`
       )
       .then((res: any) => {
-        // setRandomcerabox(hezi.Data)
         setRandomcerabox(res.data.Data)
         setRe(new Date().getTime())
       })
+
+    // setRandomcerabox(hezi.Data)
+    // setRe(new Date().getTime())
   }
 
   useEffect(() => {
@@ -154,6 +157,8 @@ export default () => {
       filtersPlugin.removeConditions(4)
       filtersPlugin.filter()
       const out = data
+      console.log(hot.updateSettings())
+      out[active] = hot.getDataAtRow()
       out[active] = hot.getData()
 
       let out1 = []
@@ -372,11 +377,27 @@ export default () => {
             height={600}
             rowHeaders
             language="zh-CN"
+            // manualRowMove
             columns={(index) => {
               return {
-                type: index >= 2 ? 'numeric' : 'text',
-                readOnly: index < 2
+                type: index >= 2 ? 'numeric' : 'text'
+                // readOnly: index < 2
               }
+            }}
+            afterChange={(changes, source) => {
+              changes?.forEach(([row, prop, oldValue, newValue]) => {
+                const hot = hotRef.current.hotInstance
+                if (prop === 0) {
+                  hot.setDataAtCell(row, 1, lst[newValue] || '-', 'GetName')
+                }
+              })
+            }}
+            beforeChange={(changes, source: string) => {
+              changes?.forEach(([row, prop, oldValue, newValue], index) => {
+                if (source !== 'GetName' && prop === 1) {
+                  changes[index] = null
+                }
+              })
             }}
             cell={[{ row: 0, col: 2, className: 'htRight', readOnly: true }]}
             licenseKey="non-commercial-and-evaluation"
