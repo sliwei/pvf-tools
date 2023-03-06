@@ -17,7 +17,7 @@ local RUN="/data/wwwroot/" + NAME;
           }
         ],
         "commands": [
-          "cp -rf dist/inedx.html "+RUN
+          "cp -rf dist/* "+RUN
         ]
       },
       {
