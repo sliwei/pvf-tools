@@ -77,17 +77,17 @@ export default () => {
     setData([])
     setActive(null)
 
-    axios
-      .get(
-        `http://localhost:${port}/Api/PvfUtiltiy/GetFileContent?filePath=stackable/twdf/cash/randomcerabox/randomcerabox_tw.stk&useCompatibleDecompiler=true&encodingType=CN`
-      )
-      .then((res: any) => {
-        setRandomcerabox(res.data.Data)
-        setRe(new Date().getTime())
-      })
+    // axios
+    //   .get(
+    //     `http://localhost:${port}/Api/PvfUtiltiy/GetFileContent?filePath=stackable/twdf/cash/randomcerabox/randomcerabox_tw.stk&useCompatibleDecompiler=true&encodingType=CN`
+    //   )
+    //   .then((res: any) => {
+    //     setRandomcerabox(res.data.Data)
+    //     setRe(new Date().getTime())
+    //   })
 
-    // setRandomcerabox(hezi.Data)
-    // setRe(new Date().getTime())
+    setRandomcerabox(hezi.Data)
+    setRe(new Date().getTime())
   }
 
   useEffect(() => {
@@ -157,8 +157,6 @@ export default () => {
       filtersPlugin.removeConditions(4)
       filtersPlugin.filter()
       const out = data
-      console.log(hot.updateSettings())
-      out[active] = hot.getDataAtRow()
       out[active] = hot.getData()
 
       let out1 = []
