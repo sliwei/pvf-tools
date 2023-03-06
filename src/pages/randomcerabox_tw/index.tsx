@@ -76,15 +76,15 @@ export default () => {
   const init = () => {
     setData([])
     setActive(null)
-    // axios
-    //   .get(
-    //     `http://localhost:${port}/Api/PvfUtiltiy/GetFileContent?filePath=stackable/twdf/cash/randomcerabox/randomcerabox_tw.stk&useCompatibleDecompiler=true&encodingType=CN`
-    //   )
-    //   .then((res: any) => {
-    setRandomcerabox(hezi.Data)
-    // setRandomcerabox(res.data.Data)
-    setRe(new Date().getTime())
-    // })
+    axios
+      .get(
+        `http://localhost:${port}/Api/PvfUtiltiy/GetFileContent?filePath=stackable/twdf/cash/randomcerabox/randomcerabox_tw.stk&useCompatibleDecompiler=true&encodingType=CN`
+      )
+      .then((res: any) => {
+        // setRandomcerabox(hezi.Data)
+        setRandomcerabox(res.data.Data)
+        setRe(new Date().getTime())
+      })
   }
 
   useEffect(() => {
@@ -147,12 +147,12 @@ export default () => {
     if (hotRef.current && active !== null) {
       const hot = hotRef.current.hotInstance
       const filtersPlugin = hot.getPlugin('filters')
-      filtersPlugin.removeConditions(0);
-      filtersPlugin.removeConditions(1);
-      filtersPlugin.removeConditions(2);
-      filtersPlugin.removeConditions(3);
-      filtersPlugin.removeConditions(4);
-      filtersPlugin.filter();
+      filtersPlugin.removeConditions(0)
+      filtersPlugin.removeConditions(1)
+      filtersPlugin.removeConditions(2)
+      filtersPlugin.removeConditions(3)
+      filtersPlugin.removeConditions(4)
+      filtersPlugin.filter()
       const out = data
       out[active] = hot.getData()
 
@@ -246,12 +246,12 @@ export default () => {
     if (hotRef.current) {
       const hot = hotRef.current.hotInstance
       const filtersPlugin = hot.getPlugin('filters')
-      filtersPlugin.removeConditions(0);
-      filtersPlugin.removeConditions(1);
-      filtersPlugin.removeConditions(2);
-      filtersPlugin.removeConditions(3);
-      filtersPlugin.removeConditions(4);
-      filtersPlugin.filter();
+      filtersPlugin.removeConditions(0)
+      filtersPlugin.removeConditions(1)
+      filtersPlugin.removeConditions(2)
+      filtersPlugin.removeConditions(3)
+      filtersPlugin.removeConditions(4)
+      filtersPlugin.filter()
       const thatData = dat || hot.getData()
       let thatOut = 0
       thatData.forEach((v: any[], i: number) => {
@@ -265,12 +265,12 @@ export default () => {
     if (hotRef.current && active !== null) {
       const hot = hotRef.current.hotInstance
       const filtersPlugin = hot.getPlugin('filters')
-      filtersPlugin.removeConditions(0);
-      filtersPlugin.removeConditions(1);
-      filtersPlugin.removeConditions(2);
-      filtersPlugin.removeConditions(3);
-      filtersPlugin.removeConditions(4);
-      filtersPlugin.filter();
+      filtersPlugin.removeConditions(0)
+      filtersPlugin.removeConditions(1)
+      filtersPlugin.removeConditions(2)
+      filtersPlugin.removeConditions(3)
+      filtersPlugin.removeConditions(4)
+      filtersPlugin.filter()
       setData((v) => {
         v[active] = hot.getData()
         return v
