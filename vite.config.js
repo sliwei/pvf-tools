@@ -12,7 +12,8 @@ export default async ({ mode }) => {
   const isProd = process.env.VITE_APP_ENV && process.env.VITE_APP_ENV !== 'dev'
   const plugins = [reactRefresh()]
   let sourcemap = true
-  let base = './'
+  // let base = './'
+  let base = 'https://i.bstu.cn/code/pvf-tools/1.0.0/'
   
   return defineConfig({
     sourcemap: true,
