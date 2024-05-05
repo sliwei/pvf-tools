@@ -16,7 +16,7 @@ export default async ({ mode }) => {
 
   console.log(isProd)
   if (isProd) {
-    base = 'https://i.bstu.cn/code/pvf-tools/1.0.0/'
+    // base = 'https://i.bstu.cn/code/pvf-tools/1.0.0/'
   }
 
   return defineConfig({
