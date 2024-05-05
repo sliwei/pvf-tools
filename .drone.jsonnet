@@ -34,7 +34,7 @@ local SOURCE="/data/docker/awei/" + NAME+"/source/";
         ],
         "commands": [
           "yarn",
-          "yarn build:prod",
+          "yarn --max-old-space-size=1536 build:prod",
           "mkdir -p "+SOURCE, # 创建源码目录
           "rm -rf "+SOURCE+"*", # 删除以前的源码
           "cp -rf dist/* "+SOURCE
