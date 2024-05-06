@@ -5,3 +5,34 @@
 #root {
   overflow: hidden;
 }
+
+.swiper-container .swiper-container {
+  width: 100%;
+}
+.swiper-container .swiper-slide {
+  text-align: center;
+}
+.swiper-container .swiper-slide div {
+  width: 86%;
+  margin: 0 auto;
+}
+.swiper-container .swiper-slide div img {
+  width: 100%;
+  display: block;
+}
+
+.swiper-container2 {
+  box-sizing: border-box;
+  padding: 0 5px 0 38px;
+}
+.swiper-container2 .swiper-slide {
+  opacity: 0.2;
+
+  width: 188px;
+  height: 334px;
+  margin-right: 33px;
+}
+
+.swiper-container2 .swiper-slide-thumb-active {
+  opacity: 1;
+}
