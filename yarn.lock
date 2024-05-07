@@ -410,6 +410,14 @@
     hey-listen "^1.0.8"
     tslib "^2.3.1"
 
+"@msb-next/swiper@6.8.4":
+  version "6.8.4"
+  resolved "http://fusion.meishubao.com:9001/@msb-next%2fswiper/-/swiper-6.8.4.tgz#b4d3be9771301b89a7182a7fe14254329ab41089"
+  integrity sha512-VR9D6YgNQP/a/YKd3hyb04/uVI24Rk7YSqRptWc7kpYs5LVNb6KpJyMV6aLG60MZAAPd56mmIRZXYft5z7kEaA==
+  dependencies:
+    dom7 "^3.0.0"
+    ssr-window "^3.0.0"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.npmmirror.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -891,7 +899,7 @@ dlv@^1.1.3:
   resolved "https://registry.npmmirror.com/dlv/-/dlv-1.1.3.tgz#5c198a8a11453596e751494d49874bc7732f2e79"
   integrity sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==
 
-dom7@^3.0.0-alpha.7:
+dom7@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmmirror.com/dom7/-/dom7-3.0.0.tgz#b861ce5d67a6becd7aaa3ad02942ff14b1240331"
   integrity sha512-oNlcUdHsC4zb7Msx7JN3K0Nro1dzJ48knvBOnDPKJ2GV9wl1i5vydJZUSyOfrkKFDZEud/jBsTk92S/VGSAe/g==
@@ -1944,7 +1952,7 @@ source-map-js@^1.2.0:
   resolved "https://registry.npmmirror.com/source-map-js/-/source-map-js-1.2.0.tgz#16b809c162517b5b8c3e7dcd315a2a5c2612b2af"
   integrity sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==
 
-ssr-window@^3.0.0-alpha.1, ssr-window@^3.0.0-alpha.4:
+ssr-window@^3.0.0, ssr-window@^3.0.0-alpha.1:
   version "3.0.0"
   resolved "https://registry.npmmirror.com/ssr-window/-/ssr-window-3.0.0.tgz#fd5b82801638943e0cc704c4691801435af7ac37"
   integrity sha512-q+8UfWDg9Itrg0yWK7oe5p/XRCJpJF9OBtXfOPgSJl+u3Xd5KI328RUEvUqSMVM9CiQUEf1QdBzJMkYGErj9QA==
@@ -2036,14 +2044,6 @@ supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmmirror.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
-
-swiper@6.1.2:
-  version "6.1.2"
-  resolved "https://registry.npmmirror.com/swiper/-/swiper-6.1.2.tgz#334693491915da51954fa388115c521dfba1eb6a"
-  integrity sha512-g3+4yHwHD1+qjhr7cxqKyJ/zTyo1SnQv5eUVE0QdygRyb13KejtISXbN44xkLmJIw9WOS/xa7Fg5YtyBH2Kg+A==
-  dependencies:
-    dom7 "^3.0.0-alpha.7"
-    ssr-window "^3.0.0-alpha.4"
 
 tailwindcss@^3.0.24:
   version "3.4.3"

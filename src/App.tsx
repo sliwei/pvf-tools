@@ -28,17 +28,18 @@
 //   )
 // }
 
-import React from 'react'
-import SwiperCore, { Thumbs } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/swiper-bundle.min.css'
+import React, { useState } from 'react'
+import SwiperCore, { Thumbs } from '@msb-next/swiper'
+import { Swiper, SwiperSlide } from '@msb-next/swiper/react'
+// import 'swiper/swiper-bundle.css'
+import '@msb-next/swiper/swiper.min.css'
 import './index.css'
 
 SwiperCore.use([Thumbs])
 let slides, slide, progress
 
 export default () => {
-  const [thumbsSwiper, setThumbsSwiper] = React.useState(null)
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null)
 
   return (
     <div>
@@ -54,7 +55,7 @@ export default () => {
             for (let i = 0; i < slides.length; i++) {
               slide = slides.eq(i)
               progress = slides[i].progress
-              console.log(slide)
+              // console.log(slide)
               slide.transform(
                 'translate3d(' +
                   progress * offsetAfter +
