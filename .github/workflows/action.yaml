@@ -23,7 +23,7 @@ jobs:
       - name: Upload
         uses: manyuanrong/setup-ossutil@v2.0
         with:
-          endpoint: 'oss.aliyuncs.com'
+          endpoint: 'oss-cn-shenzhen.aliyuncs.com'
           access-key-id: ${{ secrets.ACCESS_KEY_ID }}
           access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
           # sts-token: 'sts_token'
