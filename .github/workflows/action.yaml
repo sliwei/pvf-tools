@@ -1,0 +1,35 @@
+name: deploy pvf
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull
+        uses: actions/checkout@v3 # git pull
+
+      - name: Build
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      # - run: npm install yarn@1.22.4 -g
+      - run: yarn
+      - run: yarn build:prod
+
+      - name: Upload
+        uses: taixw2/deploy-aliyun-oss@v1
+        with:
+          # aliyun config
+          region: oss-cn-shenzhen.aliyuncs.com
+          access-key-id: ${{ secrets.ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
+          bucket: ${{ secrets.BUCKET }}
+          secure: true
+          # deploy config
+          entry: dist/**/* # glob pattern
+          remote-dir: /code/pvf-tools
+          path-rewrite: ^dist/
