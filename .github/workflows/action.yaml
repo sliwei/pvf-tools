@@ -12,13 +12,22 @@ jobs:
       - name: Pull
         uses: actions/checkout@v3 # git pull
 
-      - name: Build
+      - name: Use Node
         uses: actions/setup-node@v3
         with:
           node-version: '14'
-      # - run: npm install yarn@1.22.4 -g
-      - run: yarn
-      - run: yarn build:prod
+
+      - name: Cache Node Modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Install Packages
+        run: yarn
+
+      - name: Build
+        run: yarn build:prod
 
       - name: Upload
         uses: manyuanrong/setup-ossutil@v2.0
