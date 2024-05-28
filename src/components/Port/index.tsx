@@ -121,6 +121,14 @@ export default () => {
   }
 
   const editPort = () => {
+    umami.track((props) => ({
+      ...props,
+      name: 'signup-button',
+      data: {
+        id: 123,
+        name: 'newsletter'
+      }
+    }))
     if (thatPort !== port) {
       setPort(thatPort)
       setIsLoadLst(false)
