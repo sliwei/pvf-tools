@@ -1,24 +1,23 @@
-import React, { useState, Fragment, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { useState, useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
-import { NavLink, useNavigate } from 'react-router-dom'
-import { AiOutlineRight } from 'react-icons/ai'
 import toast from 'react-hot-toast'
 import { AiFillQuestionCircle, AiOutlineSearch, AiOutlineSave } from 'react-icons/ai'
+import { GrCircleQuestion } from 'react-icons/gr'
+import { IoClose } from 'react-icons/io5'
 import 'handsontable/dist/handsontable.full.min.css'
-import Handsontable from 'handsontable/base'
 import { registerAllModules } from 'handsontable/registry'
 import { registerLanguageDictionary, zhCN } from 'handsontable/i18n'
 import { HotTable } from '@handsontable/react'
 import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'
 // import lst from './data.js'
-import hezi from './hezi.js'
 import noDataSvg from '@/assets/images/noData.svg'
 import axios from 'axios'
 import { dataStore, portStore, useRecoilState } from '@/store'
-import Editor from '@monaco-editor/react'
 import Modal from '@/components/Modal/index.js'
+import { useCopyToClipboard } from 'react-use'
+import { TbRuler3 } from 'react-icons/tb'
 
 const { randomceraboxState, lstState } = dataStore
 const { portState } = portStore
@@ -37,6 +36,9 @@ export default () => {
   const [randomcerabox, setRandomcerabox] = useRecoilState(randomceraboxState)
   const [port, setPort] = useRecoilState(portState)
   const [lst, setLst] = useRecoilState(lstState)
+  const [_, copyToClipboard] = useCopyToClipboard()
+  const [read, setRead] = useState<boolean>(false)
+  const [alert, setAlert] = useState<boolean>(localStorage.alert === 'false' ? false : true)
 
   useEffect(() => {
     if (!randomcerabox) {
@@ -285,6 +287,12 @@ export default () => {
     }, 100)
   }
 
+  // 复制
+  const copy = () => {
+    toast.success('复制成功')
+    copyToClipboard(outcode)
+  }
+
   return (
     <Container
       initial={{ opacity: 0, scale: 0.98 }}
@@ -292,24 +300,50 @@ export default () => {
       exit={{ opacity: 0, scale: 0.98 }}
     >
       <div className="my-[5px] flex items-center">
+        <a
+          target="_blank"
+          href="https://tieba.baidu.com/p/8297751011"
+          className="rounded text-white bg-blue-600 py-1 px-2 mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition flex items-center"
+        >
+          <GrCircleQuestion />
+          教程
+        </a>
+        &ensp;
         <button
           data-tooltip-id="my-tooltip"
-          data-tooltip-content="默认自动读取一次，如果pvfUtility编辑器中文件被改动，请点击重新读取"
-          onClick={init}
+          data-tooltip-content=""
+          onClick={() => setRead(true)}
           className="rounded text-white bg-blue-600 py-1 px-2 mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition flex items-center"
         >
           <AiOutlineSearch />
-          重新读取
+          读取
         </button>
         &ensp;
         <button
           onClick={save}
-          className="rounded text-white bg-[#ff9800] py-1 px-2 mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition flex items-center"
+          className="rounded text-white bg-green-600 py-1 px-2 mb-[4px] hover:scale-105 hover:cursor-pointer active:scale-95 transition flex items-center"
         >
           <AiOutlineSave />
           生成
         </button>
       </div>
+      {alert ? (
+        <div role="alert" className="rounded border-s-4 border-yellow-500 bg-red-50 p-4 relative">
+          <IoClose
+            className="absolute top-2 right-2 text-red-500 cursor-pointer hover:scale-105 transition"
+            onClick={() => {
+              localStorage.alert = 'false'
+              setAlert(false)
+            }}
+          />
+          <p className="mt-2 text-sm text-yellow-700">
+            自动读取装备、 物品、
+            人偶和宠物的lst。自动读取一次randomcerabox_tw，如果pvfUtility编辑器中文件被改动，请点击重新读取，
+            <b className="text-red-600">重新读取会重置表格改动</b>
+            ，点击生成后复内容到pvfUtility编辑器替换randomcerabox_tw.stk内容保存即可。
+          </p>
+        </div>
+      ) : null}
       <div className="flex my-[5px]">
         {data.map((_, i) => (
           <div
@@ -408,30 +442,48 @@ export default () => {
         )}
       </div>
       <Tooltip id="my-tooltip" />
-
+      <Modal
+        show={read}
+        header="提示"
+        confirm={() => {
+          init()
+          setRead(false)
+        }}
+        cancel={() => {
+          setRead(false)
+        }}
+        confirmText="读取"
+        cancelText="取消"
+      >
+        <div className="p-4 w-[400px]">确认再次读取randomcerabox_tw吗？重新读取会重置表格改动</div>
+      </Modal>
       <Modal
         show={outWin}
         header={`生成文件：/stackable/twdf/cash/randomcerabox/randomcerabox_tw.stk`}
         cancel={() => {
+          copy()
           setOutcode('')
           setOutWin(false)
         }}
-        cancelText="ok"
+        cancelText="复制"
       >
         <div className="py-[20px] h-[60vh] w-[70vw]">
           {outcode ? (
-            <Editor
-              language="ini"
-              theme="vs-dark"
-              options={{
-                renderWhitespace: 'all',
-                lineNumbers: 'on'
-              }}
-              height="100%"
-              value={outcode}
-              defaultValue="// 生成"
-            />
-          ) : null}
+            <pre className="overflow-auto h-full w-full border-[1px] border-[#000] p-[10px]">
+              {outcode}
+            </pre>
+          ) : // <Editor
+          //   language="ini"
+          //   theme="vs-dark"
+          //   options={{
+          //     renderWhitespace: 'all',
+          //     lineNumbers: 'on'
+          //   }}
+          //   height="100%"
+          //   value={outcode}
+          //   defaultValue="// 生成"
+          // />
+          null}
         </div>
       </Modal>
     </Container>
@@ -440,7 +492,7 @@ export default () => {
 
 const Container = styled(motion.div)`
   box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
-  padding: 30px;
+  padding: 0 30px 30px 30px;
   background-color: rgb(255, 255, 255);
   border-radius: 6px;
 `

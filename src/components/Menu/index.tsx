@@ -27,31 +27,31 @@ const menu = [
         link: '/itemdropinfo_common',
         type: 0
       },
-      {
-        title: '独立掉落',
-        link: '/independent_drop',
-        type: 0
-      },
-      {
-        title: 'NPC商店',
-        link: '/itemshop',
-        type: 0
-      },
-      {
-        title: '翻牌',
-        link: '/itemdropinfo_clearreward',
-        type: 0
-      },
-      {
-        title: '小怪',
-        link: '/itemdropinfo_monseter',
-        type: 0
-      },
-      {
-        title: '绿名怪',
-        link: '/itemdropinfo_monseter_extra',
-        type: 0
-      }
+      // {
+      //   title: '独立掉落',
+      //   link: '/independent_drop',
+      //   type: 0
+      // },
+      // {
+      //   title: 'NPC商店',
+      //   link: '/itemshop',
+      //   type: 0
+      // },
+      // {
+      //   title: '翻牌',
+      //   link: '/itemdropinfo_clearreward',
+      //   type: 0
+      // },
+      // {
+      //   title: '小怪',
+      //   link: '/itemdropinfo_monseter',
+      //   type: 0
+      // },
+      // {
+      //   title: '绿名怪',
+      //   link: '/itemdropinfo_monseter_extra',
+      //   type: 0
+      // }
     ]
   }
 ]

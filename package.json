@@ -32,6 +32,7 @@
     "react-query": "^3.39.1",
     "react-router-dom": "^6.3.0",
     "react-tooltip": "^5.8.3",
+    "react-use": "^17.5.0",
     "recoil": "^0.7.3",
     "styled-components": "^5.3.5",
     "vanilla-back-to-top": "^7.2.1"

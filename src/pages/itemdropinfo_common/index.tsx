@@ -289,7 +289,7 @@ export default () => {
 
 const Container = styled(motion.div)`
   box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
-  padding: 30px;
+  padding: 0 30px 30px 30px;
   background-color: rgb(255, 255, 255);
   border-radius: 6px;
 `
